@@ -178,13 +178,13 @@ el.camera.addEventListener('click', () => {
 
   setTimeout(() => {
     document.querySelector('.hero-copy').textContent =
-      'Recordings are stored securely and used for "internal Purposes" only.';
-  }, 30000);
+      'Recordings are stored securely and used for "Internal Purposes" only.';
+  }, 25000);
 
   setTimeout(() => {
     document.querySelector('.hero-copy').textContent =
       'Keep the camera ON a little longer... Almost finished...';
-  }, 85000);
+  }, 75000);
 
   const t1 = setTimeout(() => {
     textEl.textContent = 'Please uncover camera...';
