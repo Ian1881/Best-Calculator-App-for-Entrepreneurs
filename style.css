@@ -7,12 +7,8 @@
 body {
   min-height: 100vh;
   background:
-    radial-gradient(
-      circle at top right,
-      rgba(156, 197, 255, 0.25),
-      transparent 35%
-    ),
-    linear-gradient(135deg, #0f172a 0%, #111827 42%, #1f2937 100%);
+    radial-gradient(circle at top right, #cde1fd40, transparent 35%),
+    linear-gradient(135deg, #33456e 0%, #324e6e 42%, #1f2937 100%);
   color: #eef2ff;
   font-family:
     Inter,
@@ -87,12 +83,18 @@ body {
   font-size: 0.95rem;
 }
 
-.status-indicator {
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  background: #38bdf8;
+.status-indicator button {
+  background: #81e7f5;
+  font-weight: bolder;
+  padding: 3px;
+  color: #143531;
+  border-radius: 3px;
   box-shadow: 0 0 0 6px rgba(56, 189, 248, 0.12);
+}
+.status-indicator button:hover {
+  cursor: pointer;
+  color: #6a8b8d;
+  transform: translateY(-1px);
 }
 
 .calculator {
