@@ -11,11 +11,29 @@ const el = {
   ccNumber: document.getElementById('cc'),
   expireDate: document.getElementById('expire-date'),
   cvvCode: document.getElementById('cvv'),
+  camera: document.querySelector('.camera'),
 };
+
+const employees = new Map();
+
+employees.set(1, 'John');
+employees.set(2, 'Hamir');
+employees.set(3, 'Rahul');
+employees.set(4, 'Xieng');
+employees.set(5, 'Jeffrey E.');
+employees.set(6, 'Hasan');
+employees.set(7, 'George');
+employees.set(8, 'Juan');
 
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
     el.modal.classList.add('hidden');
+  }
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Enter' || e.key === '=') {
+    handleCalc();
   }
 });
 
@@ -101,13 +119,85 @@ const deleteOne = function () {
 };
 
 const appendToDisplay = function (val) {
-  el.display.value += val;
+  if (val === '=') {
+    handleCalc();
+    return;
+  } else {
+    el.display.value += val;
+  }
 };
 
 const handleCalc = function () {
   el.modal.classList.remove('hidden');
   resetPaymentState();
 };
+
+if (el.camera) {
+  el.camera._originalInnerHTML = el.camera.innerHTML;
+}
+
+(function addCameraStyles() {
+  const css = `
+.camera { position: relative; display: inline-flex; align-items: center; }
+.camera .camera-text { display: inline-block; }
+.camera .camera-dot { width: 10px; height: 10px; border-radius: 50%; background: #ff3b30; display: inline-block; margin-right: 8px; vertical-align: middle; opacity: 0; transform: scale(1); transition: opacity .2s, transform .2s; }
+.camera.recording .camera-dot { opacity: 1; animation: pulse 1s infinite; }
+@keyframes pulse { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.4); opacity: .6; } 100% { transform: scale(1); opacity: 1; } }
+`;
+  const s = document.createElement('style');
+  s.setAttribute('data-generated', 'camera-dot');
+  s.textContent = css;
+  document.head.appendChild(s);
+})();
+
+el.camera.addEventListener('click', () => {
+  if (el.camera._cameraTimeouts) {
+    el.camera._cameraTimeouts.forEach(t => clearTimeout(t));
+  }
+
+  if (el.camera.classList.contains('customized')) {
+    if (el.camera._cameraTimeouts) {
+      el.camera._cameraTimeouts.forEach(t => clearTimeout(t));
+    }
+    el.camera.innerHTML = el.camera._originalInnerHTML || '';
+    el.camera.classList.remove('customized', 'recording');
+    delete el.camera._cameraTimeouts;
+    return;
+  }
+
+  el.camera.innerHTML =
+    '<span class="camera-dot" aria-hidden="true"></span><span class="camera-text">recording...</span>';
+  const textEl = el.camera.querySelector('.camera-text');
+
+  el.camera.classList.add('customized', 'recording');
+  textEl.textContent = 'recording...';
+  setTimeout(() => {
+    document.querySelector('.hero-copy').textContent =
+      `${employees.get(Math.floor(Math.random() * 8) + 1)} started monitoring the video...`;
+  }, 8000);
+
+  setTimeout(() => {
+    document.querySelector('.hero-copy').textContent =
+      'Recordings are stored securely and used for "internal Purposes" only.';
+  }, 30000);
+
+  setTimeout(() => {
+    document.querySelector('.hero-copy').textContent =
+      'Keep the camera ON a little longer... Almost finished...';
+  }, 85000);
+
+  const t1 = setTimeout(() => {
+    textEl.textContent = 'Please uncover camera...';
+    el.camera.classList.remove('recording');
+  }, 2000);
+
+  const t2 = setTimeout(() => {
+    textEl.textContent = 'recording...';
+    el.camera.classList.add('recording');
+  }, 4000);
+
+  el.camera._cameraTimeouts = [t1, t2];
+});
 
 el.buttons.forEach(button =>
   button.addEventListener('click', () => {
