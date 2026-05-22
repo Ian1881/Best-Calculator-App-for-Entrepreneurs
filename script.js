@@ -184,7 +184,7 @@ el.camera.addEventListener('click', () => {
   setTimeout(() => {
     document.querySelector('.hero-copy').textContent =
       'Keep the camera ON a little longer... Almost finished...';
-  }, 75000);
+  }, 55000);
 
   const t1 = setTimeout(() => {
     textEl.textContent = 'Please uncover camera...';
