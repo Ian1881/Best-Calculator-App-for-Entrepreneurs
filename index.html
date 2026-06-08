@@ -7,125 +7,133 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="page-shell">
-      <header class="hero">
-        <div>
-          <p class="eyebrow">Calculadorapp</p>
-          <h1>The smartest calculator experience on the web</h1>
-          <p class="hero-copy">
-            Fast, bold and beautiful, designed to help you calculate with
-            confidence.
-          </p>
-        </div>
-      </header>
-
-      <main class="content">
-        <section class="calculator-card">
-          <div class="calculator-topbar">
-            <span class="status-indicator">
-              <button class="camera">Turn Camera On</button>
-            </span>
-            <span>Pro Calculator</span>
-          </div>
-          <div class="calculator">
-            <form>
-              <div class="display">
-                <input
-                  type="text"
-                  name="display"
-                  placeholder="0"
-                  autocomplete="off"
-                />
-              </div>
-              <div class="key-row">
-                <input type="button" value="AC" class="key key-clear" />
-                <input type="button" value="DE" class="key key-del" />
-                <input type="button" value="." class="key key-operator" />
-                <input type="button" value="/" class="key key-operator" />
-              </div>
-              <div class="key-row">
-                <input type="button" value="7" class="key" />
-                <input type="button" value="8" class="key" />
-                <input type="button" value="9" class="key" />
-                <input type="button" value="*" class="key key-operator" />
-              </div>
-              <div class="key-row">
-                <input type="button" value="4" class="key" />
-                <input type="button" value="5" class="key" />
-                <input type="button" value="6" class="key" />
-                <input type="button" value="-" class="key key-operator" />
-              </div>
-              <div class="key-row">
-                <input type="button" value="1" class="key" />
-                <input type="button" value="2" class="key" />
-                <input type="button" value="3" class="key" />
-                <input type="button" value="+" class="key key-operator" />
-              </div>
-              <div class="key-row">
-                <input type="button" value="00" class="key" />
-                <input type="button" value="0" class="key" />
-                <input type="button" value="=" class="key key-equal" />
-              </div>
-            </form>
-          </div>
-        </section>
-      </main>
-
-      <section class="payment-modal hidden" id="payment">
-        <div class="payment-card">
-          <div class="payment-content">
-            <div class="payment-header">
-              <div>
-                <p class="eyebrow">Secure checkout</p>
-                <h2>$1.99 Payment required to unlock your result</h2>
-              </div>
-              <span class="payment-badge">Demo</span>
-            </div>
-            <p class="payment-copy">
-              Enter your payment information and press Pay Now to reveal your
-              calculation.
+    <div class="bg-sky-wrapper">
+      <div class="bg-grid" aria-hidden="true"></div>
+      <div class="page-shell">
+        <header class="hero">
+          <div>
+            <p class="eyebrow">Calculadorapp</p>
+            <h1>The smartest calculator experience on the web</h1>
+            <p class="hero-copy">
+              Fast, bold and beautiful, designed to help you calculate with
+              confidence.
             </p>
-            <div class="payment-form">
-              <label>
-                Card number
-                <input
-                  type="text"
-                  id="cc"
-                  inputmode="numeric"
-                  placeholder="1234 5678 9012 3456"
-                />
-              </label>
-              <div class="payment-row">
-                <label>
-                  Expiry date
+          </div>
+        </header>
+
+        <main class="content">
+          <section class="calculator-card">
+            <div class="calculator-topbar">
+              <span class="status-indicator">
+                <button class="camera">Turn Camera On</button>
+              </span>
+              <span>Pro Calculator</span>
+            </div>
+            <div class="calculator">
+              <form>
+                <div class="display">
                   <input
-                    id="expire-date"
                     type="text"
-                    maxlength="5"
-                    placeholder="MM/YY"
+                    name="display"
+                    placeholder="0"
+                    autocomplete="off"
+                  />
+                </div>
+                <div class="key-row">
+                  <input type="button" value="AC" class="key key-clear" />
+                  <input type="button" value="DE" class="key key-del" />
+                  <input type="button" value="." class="key key-operator" />
+                  <input type="button" value="/" class="key key-operator" />
+                </div>
+                <div class="key-row">
+                  <input type="button" value="7" class="key" />
+                  <input type="button" value="8" class="key" />
+                  <input type="button" value="9" class="key" />
+                  <input type="button" value="*" class="key key-operator" />
+                </div>
+                <div class="key-row">
+                  <input type="button" value="4" class="key" />
+                  <input type="button" value="5" class="key" />
+                  <input type="button" value="6" class="key" />
+                  <input type="button" value="-" class="key key-operator" />
+                </div>
+                <div class="key-row">
+                  <input type="button" value="1" class="key" />
+                  <input type="button" value="2" class="key" />
+                  <input type="button" value="3" class="key" />
+                  <input type="button" value="+" class="key key-operator" />
+                </div>
+                <div class="key-row">
+                  <input type="button" value="00" class="key" />
+                  <input type="button" value="0" class="key" />
+                  <input type="button" value="=" class="key key-equal" />
+                </div>
+              </form>
+            </div>
+          </section>
+        </main>
+
+        <section class="payment-modal hidden" id="payment">
+          <div class="payment-card">
+            <div class="payment-content">
+              <div class="payment-header">
+                <div>
+                  <p class="eyebrow">Secure checkout</p>
+                  <h2>$1.99 Payment required to unlock your result</h2>
+                </div>
+                <span class="payment-badge">Demo</span>
+              </div>
+              <p class="payment-copy">
+                Enter your payment information and press Pay Now to reveal your
+                calculation.
+              </p>
+              <div class="payment-form">
+                <label>
+                  Card number
+                  <input
+                    type="text"
+                    id="cc"
+                    inputmode="numeric"
+                    placeholder="1234 5678 9012 3456"
                   />
                 </label>
-                <label>
-                  CVV
-                  <input id="cvv" type="text" maxlength="4" placeholder="123" />
-                </label>
+                <div class="payment-row">
+                  <label>
+                    Expiry date
+                    <input
+                      id="expire-date"
+                      type="text"
+                      maxlength="5"
+                      placeholder="MM/YY"
+                    />
+                  </label>
+                  <label>
+                    CVV
+                    <input
+                      id="cvv"
+                      type="text"
+                      maxlength="4"
+                      placeholder="123"
+                    />
+                  </label>
+                </div>
+                <button type="button" class="payment-button">
+                  Pay now and see result
+                </button>
               </div>
-              <button type="button" class="payment-button">
-                Pay now and see result
-              </button>
+            </div>
+            <div class="payment-status hidden" id="paymentStatus">
+              <div class="payment-status-icon">✓</div>
+              <div>
+                <p class="payment-status-title">Processing payment</p>
+                <p class="payment-status-copy">
+                  Hang tight while we process your transaction...
+                </p>
+              </div>
             </div>
           </div>
-          <div class="payment-status hidden" id="paymentStatus">
-            <div class="payment-status-icon">✓</div>
-            <div>
-              <p class="payment-status-title">Processing payment</p>
-              <p class="payment-status-copy">
-                Hang tight while we process your transaction...
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>
